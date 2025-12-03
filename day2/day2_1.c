@@ -23,8 +23,10 @@ int main(int argc, const char* argv[]) {
     }
 
     Arena *arena;
-    if ((arena = create_arena(1024 * 1024)) == nullptr)
-        goto Error;
+    if ((arena = create_arena(1024 * 1024)) == nullptr) {
+        fclose(file);
+        return -1;
+    }
 
     long long invalid_id_counter = 0;
 
@@ -49,7 +51,7 @@ int main(int argc, const char* argv[]) {
 
         }
 
-        arena_clear(arena);
+        arena_pop(arena, range);
     }
 
     printf("Number of invalid Ids %lld\n", invalid_id_counter);
