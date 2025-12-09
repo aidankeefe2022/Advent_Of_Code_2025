@@ -8,6 +8,7 @@
 #include "day3_utils.h"
 #include "../Arena/Arena.h"
 #include "../cust_fileReader/file_reader.h"
+#include "../Stack/Stack.h"
 
 int main(int argc, const char * argv[]) {
     if (argc != 2) {
@@ -28,12 +29,12 @@ int main(int argc, const char * argv[]) {
 
     char* line;
     long joltage = 0;
+    CharStack* ret = createStack(12);
     while ((line = read_line(arena, fp))) {
-        char ret[2];
-        find_largest_combo(ret, line, strlen(line));
-        printf("%s\n", ret);
-        joltage += strtol(ret, NULL, 10);
-        memset(ret, 0, sizeof(ret));
+        find_largest_combo(line, strlen(line), ret);
+        printf("%s\n", ret->stack);
+        joltage += strtol(ret->stack, NULL, 10);
+        reset(ret);
         arena_pop(arena, line);
     }
 
