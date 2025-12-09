@@ -3,16 +3,17 @@
 //
 
 #include <assert.h>
+#include <stdio.h>
 #include <string.h>
 #include "day3_utils.h"
 
 void TestFindLargestCombo(void) {
-
-    char ret[2];
-    char* string = "2891";
-    int len = strlen(string);
-    find_largest_combo(ret, string, len);
-    assert(strcmp(ret, "91") == 0);
+    CharStack* char_stack = createStack(3);
+    assert(char_stack != NULL);
+    char* string = "412345";
+    size_t len = strlen(string);
+    find_largest_combo(string, len, char_stack);
+    assert(strcmp(char_stack->stack, "445") == 0);
 
 }
 

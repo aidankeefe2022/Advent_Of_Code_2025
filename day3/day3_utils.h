@@ -6,8 +6,9 @@
 #define ADVENTOFCODE2025_DAY3_UTILS_H
 #include <stdlib.h>
 #include <string.h>
+#include "../Stack/Stack.h"
 
 
-bool find_largest_combo(char ret[static 2],char* string, size_t len);
+bool find_largest_combo(char* string, size_t len, CharStack* char_stack);
 
 #endif //ADVENTOFCODE2025_DAY3_UTILS_H
