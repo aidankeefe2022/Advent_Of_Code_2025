@@ -6,9 +6,9 @@
 #include <stdio.h>
 
 #include "day3_utils.h"
-#include "../Arena/Arena.h"
-#include "../cust_fileReader/file_reader.h"
-#include "../Stack/Stack.h"
+#include "../tools/Arena/Arena.h"
+#include "../tools/cust_fileReader/file_reader.h"
+#include "../tools/Stack/Stack.h"
 
 int main(int argc, const char * argv[]) {
     if (argc != 2) {
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
         fclose(fp);
     }
 
-    char* line;
+    Line* line;
     long joltage = 0;
     CharStack* ret = createStack(12);
     while ((line = read_line(arena, fp))) {
