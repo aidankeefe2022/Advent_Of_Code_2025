@@ -35,22 +35,23 @@ void log_message(LOG_LEVEL msg_log_level, const char* log_message, ...) {
 
     switch (msg_log_level) {
         case LOG_ERROR:
-            printf(ANSI_COLOR_RED "ERROR: ");
+            printf(ANSI_COLOR_RED "ERROR: "ANSI_COLOR_RESET);
             break;
         case LOG_INFO:
-            printf(ANSI_COLOR_GREEN"INFO: ");
+            printf(ANSI_COLOR_GREEN"INFO: "ANSI_COLOR_RESET);
             break;
         case LOG_WARN:
-            printf(ANSI_COLOR_YELLOW"WARN: ");
+            printf(ANSI_COLOR_YELLOW"WARN: "ANSI_COLOR_RESET);
             break;
         case LOG_DEBUG:
-            printf(ANSI_COLOR_MAGENTA"DEBUG: ");
+            printf(ANSI_COLOR_MAGENTA"DEBUG: " ANSI_COLOR_RESET);
             break;
         default:
             return;
     }
 
     vprintf(log_message, ap);
+    printf("\n");
 
     va_end(ap);
 }

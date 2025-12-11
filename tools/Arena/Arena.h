@@ -6,6 +6,7 @@
 #define ACO_ARENA_H
 
 #include <stdint.h>
+#include <stddef.h>
 
 typedef enum ARENA_STATUS {
     ARENA_OK,

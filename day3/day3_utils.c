@@ -5,6 +5,7 @@
 #include "day3_utils.h"
 
 #include <stdio.h>
+#
 
 void end_case(char* string, CharStack* stack) {
     int cur_stack_index = 1;
@@ -23,7 +24,7 @@ void end_case(char* string, CharStack* stack) {
     }
 }
 
-bool find_largest_combo(char* string, const size_t len, CharStack* stack) {
+bool find_largest_combo(Line* string, const size_t len, CharStack* stack) {
     int remaining = len;
     while (*string) {
         int string_value = *string - '0';

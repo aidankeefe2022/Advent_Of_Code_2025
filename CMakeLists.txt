@@ -8,26 +8,28 @@ set(CMAKE_C_STANDARD 23)
 add_executable(AdventOfCode2025
         tools/cust_fileReader/file_reader.c
         tools/Arena/Arena.c
-        day3/day3.c
-        day3/day3_utils.c
         tools/Stack/Stack.c
+        tools/Logger/logger.c
+        day4/day4.c
+        day4/day4_util.c
 )
 
 target_link_libraries(AdventOfCode2025 m)
 
-# --- Separate test executable ---
-add_executable(day3_test
-        day3/test.c
-        day3/day3_utils.c # <-- needed so update_scanner/check_pattern link correctly
+add_executable(Day4_test
         tools/cust_fileReader/file_reader.c
-        tools/Stack/Stack.c
         tools/Arena/Arena.c
+        tools/Stack/Stack.c
+        tools/Logger/logger.c
+        day4/day4_util.c
+        day4/test_day4.c
+
 )
 
-target_link_libraries(day3_test m)
+target_link_libraries(Day4_test m)
+
 
 add_executable(Stack_Test
-
         tools/Stack/test.c
         tools/Stack/Stack.c
 )
@@ -36,5 +38,5 @@ target_link_libraries(Stack_Test m)
 
 
 
-add_test(NAME Day3Test COMMAND day3_test)
+add_test(NAME Day4_test COMMAND day4_test)
 add_test(NAME StackTest COMMAND Stack_Test)
